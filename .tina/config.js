@@ -1,7 +1,7 @@
 import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'master';
+const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "master";
 
 export default defineConfig({
   branch,
@@ -9,7 +9,7 @@ export default defineConfig({
   token: "684cfab6f6b2890021fa1abf785a6085de6dfed2", // Get this from tina.io
   build: {
     outputFolder: "admin",
-    publicFolder: "assets",
+    publicFolder: "",
   },
   media: {
     tina: {
@@ -48,7 +48,7 @@ export default defineConfig({
               },
               {
                 type: "string",
-                name: "lang-ref",
+                name: "lang_ref",
                 label: "Language Reference",
               },
             ],
@@ -59,7 +59,7 @@ export default defineConfig({
       },
       {
         label: "Pages",
-        name: "pages",
+        name: "pages_es",
         path: "lang/es/pages",
         templates: [
           {
@@ -86,7 +86,7 @@ export default defineConfig({
               },
               {
                 type: "string",
-                name: "lang-ref",
+                name: "lang_ref",
                 label: "Language Reference",
               },
             ],
