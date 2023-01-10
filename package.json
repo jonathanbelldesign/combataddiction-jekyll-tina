@@ -1,0 +1,24 @@
+{
+  "name": "combataddiction-jekyll-tina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jonathanbelldesign@github.com/jonathanbelldesign/combataddiction-jekyll-tina.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanbelldesign/combataddiction-jekyll-tina/issues"
+  },
+  "homepage": "https://github.com/jonathanbelldesign/combataddiction-jekyll-tina#readme",
+  "dependencies": {
+    "@tinacms/cli": "^1.0.5",
+    "tinacms": "^1.1.2"
+  }
+}
