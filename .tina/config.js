@@ -56,45 +56,7 @@ export default defineConfig({
             name: "page_sectioned",
           },
         ],
-      },
-      {
-        label: "Pages",
-        name: "pages_es",
-        path: "lang/es/pages",
-        templates: [
-          {
-            fields: [
-              {
-                type: "string",
-                name: "layout",
-                label: "Layout",
-              },
-              {
-                type: "string",
-                name: "title",
-                label: "Title",
-              },
-              {
-                type: "boolean",
-                name: "show_section_navigation",
-                label: "Show Section Navigation",
-              },
-              {
-                type: "string",
-                name: "permalink",
-                label: "Permalink",
-              },
-              {
-                type: "string",
-                name: "lang_ref",
-                label: "Language Reference",
-              },
-            ],
-            label: "page-sectioned",
-            name: "page_sectioned",
-          },
-        ],
-      },
+      }
     ],
   },
 });
