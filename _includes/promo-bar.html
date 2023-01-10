@@ -1,0 +1,5 @@
+{% comment %}Add conditional logic from CMS settings{% endcomment %}
+  {% if site.data.header.promo_bar %}<div class="promo-banner text-center" style="background-color: {{ site.data.header.promo_color }}; font-size: {{ site.data.header.promo_bar_font_size }}px;"><div class="wrapper">
+    {{ site.data.header.promo_text }}
+  </div>
+  </div>{% endif %}

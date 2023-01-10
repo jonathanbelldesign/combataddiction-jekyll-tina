@@ -1,0 +1,99 @@
+<form id="reservation-request" action="/book-a-ride/success" name="reservation" method="POST" netlify class="grid">
+  
+  <div class="grid__item one-whole">
+    <h4>Passenger Info</h4>
+  </div>
+	<div class="grid__item one-half small--one-whole">
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="" title="Please enter your first name" required>
+	</div>
+	
+	<div class="grid__item one-half small--one-whole">
+  <label for="lastname">Last Name</label>
+  <input type="text" name="lastname" id="lastname" placeholder="" title="Please enter your last name" required>
+	</div>
+  
+	<div class="grid__item one-half small--one-whole">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email" autocomplete="email" placeholder="" title="The domain portion of the email address is invalid (the portion after the @)." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$" required>
+	</div>
+	
+	<div class="grid__item one-half small--one-whole">
+  <label for="phone">Telephone</label>
+  <input type="text" name="phone" id="phone" autocomplete="tel-national" required>
+	</div>
+	
+	<div class="grid__item one-half small--one-whole">
+  <label for="phone">Number of passengers</label>
+  <input type="number" name="passengers" id="passengers" autocomplete="off" value="1" required>
+  <!--<select name="passengers" id="passengers">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+  </select>-->
+	</div>
+	
+	<div class="grid__item one-half small--one-whole">
+  <label for="phone">Number of bags/luggage</label>
+  <input type="number" name="luggage" id="luggage" autocomplete="off" value="0" required>
+	</div>
+	
+	<div class="grid__item one-whole">
+  	<h4>Service Type</h4>
+  	<!--<label for="service-type">Service Type</label>-->
+  	<select id="service-type" name="service-type">
+    	<option value="To Airport">To Airport</option>
+    	<option value="From Airport">From Airport</option>
+    	<option value="Airport Roundtrip (To Airport 1st)">Airport Roundtrip (To Airport 1st)</option>
+    	<option value="Airport Roundtrip (From Airport 1st)">Airport Roundtrip (From Airport 1st)</option>
+    	<option value="One-Way Trip">One-Way Trip</option>
+    	<option value="Hourly Charter">Hourly Charter</option>
+    	<option value="Roundtrip">Roundtrip</option>
+  	</select>
+	</div>
+	
+	<div class="grid__item one-whole">
+  	<h4>Pickup</h4>
+	</div>
+	
+	<div class="grid__item two-thirds small--one-whole">    	
+    <label for="phone">Address, City, State</label>
+    <input type="text" name="pickup-address" id="pickup-address" autocomplete="off" placeholder="" required>
+	</div>
+	<div class="grid__item one-third small--one-whole">
+    <label for="phone">Time/Date</label>
+    <input type="text" class="datepicker" name="pickup-time" id="pickup-time" autocomplete="off" placeholder="" required>
+	</div>
+	
+	<div class="grid__item one-whole">
+  	<h4>Dropoff</h4>
+	</div>
+	
+	<div class="grid__item two-thirds small--one-whole">
+    <label for="phone">Address, City, State</label>
+    <input type="text" name="dropoff-date" id="dropoff-date" autocomplete="off" placeholder="" required>
+	</div>
+	
+	<div class="grid__item one-third small--one-whole">    
+    <label for="phone">Time/Date</label>
+    <input type="text" class="datepicker" name="dropoff-time" id="dropoff-time" autocomplete="off" placeholder="" required>
+	</div>
+	
+	<div class="grid__item one-whole">
+  
+	</div>
+	
+	<div class="grid__item one-whole">
+  	
+  	{{ page.after_form }}
+  	
+  
+  <div data-netlify-recaptcha="true"></div>
+  
+  <button type="submit" name="submit">Request Ride</button>
+  
+	</div>
+</form>

@@ -1,0 +1,170 @@
+$browser-context: 18; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+// Basic Typographic Defaults
+
+// set font sizes in percent on the root element
+
+html {
+  font-size: $base-font-size;
+  
+  @include media-query($medium-up) {
+    font-size: $base-font-size * 1.1;
+  }
+
+  @include media-query($large-up) {
+    font-size: $base-font-size * 1.2;
+  }
+  @include media-query($widescreen) {
+    //font-size: $base-font-size * 1.4;
+  }
+}
+
+// now we can specify a single font size in rem for each of our elements
+// the root breakpoints above will then scale all elements together
+
+body {
+  color: $colorText;
+  font-family: $baseFont;
+  line-height: $base-line-height;
+  font-weight: $base-font-weight;
+  font-style: normal;
+	font-variant: normal;
+  font-size: 1.4rem;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  padding: 1rem 0;
+  
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+/*h1,h2,h3,h4,h5,h6 {
+  p + & {
+    padding-top: 1.5rem;
+  }
+}*/
+h1,h2,h3,h4,h5,h6
+.h1,.h2,.h3,.h4,.h5,.h6 {
+  
+  @include headingFontStack();
+  color: $colorHeading;
+  line-height: 1.2;
+}
+
+h1 {
+	font-size: 2.8rem;
+}
+h2, .h2 {
+  font-size: 2.6rem;
+  
+  section &
+  {
+	  padding-bottom: 2rem;
+  }
+}
+
+h3 {
+	font-size: 2.2rem;
+}
+h4 {
+	font-size: 1.85rem;
+}
+p, li {
+	font-size: 1.3rem;
+	line-height: 1.8;
+	letter-spacing: .027rem;
+	color: $colorText;
+	
+	&.small {
+		font-size: 1.3rem;
+	}
+}
+p.intro {
+  font-size: 1.75rem;
+  color: $colorText;
+  padding-bottom: 3rem;
+  @media screen and (min-width: $screen-md-min) {
+    padding-bottom: 3rem;
+  }
+}
+blockquote {
+	margin: 0 0 3rem;
+	@include headingFontStack();
+	font-weight: normal;
+	p {
+		font-style: italic;
+	}	
+	cite {
+		margin-top: 2rem;
+		display: block;
+	}
+}
+strong {
+  font-weight: $bold-font-weight;
+}
+
+small,
+time {
+	display: block;
+	padding-bottom: 1rem;
+	font-size: 1rem;
+	//color: $colorTextLight;
+}
+.small {
+	font-size: 1rem;
+}
+
+.caps {
+	text-transform: uppercase;	
+}
+.grid__item {
+	p, li {
+		font-size: 1.2rem;
+		line-height: 1.5;
+	}
+}
+a,
+a:visited {
+	text-decoration: none;
+	color: $colorLink;
+	transition: all $transition;
+	p & {
+  	//border-bottom: 0.05em solid $colorLink;
+  }
+}
+
+a:hover,
+a:active {
+  text-decoration: none;
+  color: $colorLinkHover;
+  p & {
+  	//border-bottom: 0.05em solid $colorLinkHover;
+  }
+}
+a.btn {
+	display: inline-block;
+	margin: 1em 0;
+	//font-size: em(18);
+}
+/*header {
+	nav {
+		li {
+			font-size: 1.4rem;
+			a, a:visited {
+				@include headingFontStack();
+				font-weight: 500;
+				color: $colorHeading;
+				color: #fff;
+			}
+			a:hover {
+				color: $colorHeadingAlt;
+			}
+		}
+	}
+}*/

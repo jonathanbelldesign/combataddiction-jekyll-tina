@@ -1,0 +1,51 @@
+---
+layout: default
+---
+{% assign author = site.data.authors[page.author] %}
+
+<div class="wrapper narrow posts">
+	
+	<a href="/blog" class="">&laquo; Return to Blog</a>
+	
+	<br><br>
+
+	<article class="post">
+		{% if post.image %}
+		<img src="{{ page.image }}" />
+		{% endif %}
+	  <h3 class="post__title">{{ page.title }}</h3>
+	  {% if page.author %}
+	    <p class="byline"><small><strong>By {{ page.author }}</strong></small></p>
+	  {% endif %}
+	  
+	  <div class="rte post__body">
+	    {{ page.content }}
+	  </div>
+	  
+	  <time datetime="{{ page.date }}" class="hide">
+	    <small>
+	      <strong>{{ page.date | date: "%B %-d, %Y" }}</strong>
+	      {% if author %}
+	        by <strong>{{ author.name }}</strong>
+	      {% endif %}
+	    </small>
+	  </time>
+	  
+	</article>
+
+<!--<nav aria-label="Adjacent Posts">
+  <ul>
+    {% if page.previous.url %}
+      <li>
+        <a href="{{page.previous.url}}" rel="prev">&laquo; {{page.previous.title}}</a>
+      </li>
+    {% endif %}
+    {% if page.next.url %}
+      <li>
+        <a href="{{page.next.url}}" rel="next">{{page.next.title}} &raquo;</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>-->
+
+</div>

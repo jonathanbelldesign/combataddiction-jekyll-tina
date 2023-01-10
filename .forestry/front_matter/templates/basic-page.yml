@@ -1,0 +1,102 @@
+---
+label: Page
+hide_body: false
+display_field: title
+fields:
+- name: layout
+  type: select
+  default: page
+  config:
+    required: false
+    options:
+    - page
+    - page-sectioned
+    - contact
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Layout
+  hidden: false
+- type: text
+  name: title
+  label: Title
+  config:
+    required: true
+- type: text
+  name: permalink
+  label: Permalink
+  config:
+    required: false
+- type: text
+  name: id
+  label: ID
+  hidden: true
+- name: after_form
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: After Form
+  showOnly:
+    field: layout
+    value: contact
+- name: display_heading
+  type: boolean
+  label: Display Heading Banner
+- name: banner_image
+  type: include
+  config: {}
+  template: banner-image
+  label: Banner Image
+  showOnly:
+    field: display_heading
+    value: true
+- name: seo
+  type: include
+  config: {}
+  template: seo
+  label: SEO
+- name: lang-ref
+  type: text
+  config:
+    required: false
+  label: Language Reference
+  description: This should contain the URL handle for the corresponding page in English,
+    e.g. <em>get-help-now</em>
+- name: hide_help_widget
+  type: boolean
+  label: Hide Help Widget
+pages:
+- lang/es/pages/about.md
+- lang/es/pages/contact.md
+- lang/es/pages/en-una-crisis.md
+- lang/es/pages/encontrar-ayuda.md
+- lang/es/pages/trayectorias-profesionales-crpa.md
+- lang/es/pages/trayectorias-profesionales-employers.md
+- lang/es/pages/trayectorias-profesionales-emt.md
+- lang/es/pages/trayectorias-profesionales-lpn.md
+- lang/es/pages/trayectorias-profesionales-prevention.md
+- lang/es/pages/trayectorias-profesionales-regional-programs.md
+- lang/es/pages/trayectorias-profesionales-rn.md
+- lang/es/pages/trayectorias-profesionales-social-worker.md
+- lang/es/pages/trayectorias-profesionales-treatment.md
+- pages/brain-health.md
+- pages/career-paths-crpa.md
+- pages/career-paths-employers.md
+- pages/career-paths-emt.md
+- pages/career-paths-lpn.md
+- pages/career-paths-prevention.md
+- pages/career-paths-regional-programs.md
+- pages/career-paths-rn.md
+- pages/career-paths-social-worker.md
+- pages/career-paths-treatment.md
+- pages/career-paths.md
+- pages/conversation-starters-1.md
+- pages/conversation-starters-2.md
+- pages/soberholidays.md
+- pages/survey-test.md

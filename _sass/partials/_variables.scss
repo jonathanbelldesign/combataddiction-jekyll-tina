@@ -1,0 +1,57 @@
+$transition: 150ms;
+
+// FONTS
+
+$baseFont: "Open Sans", helvetica, arial, sans-serif;
+$headingFont: "Calluna Sans", helvetica, arial, sans-serif;
+//$headingFont: "Feijoa", Georgia, Times, serif;
+
+@mixin baseFontStack() {
+	font-family: $baseFont;
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin headingFontStack() {
+	font-family: $headingFont;
+	font-weight: 700;
+	font-style: normal;
+}
+
+// COLORS
+
+$colorBrand: #5E2490; //purple
+$colorBrand2: #372554; //raisin
+
+$colorBrand3: #896594; //violet
+$colorBrand4: #BFA0C3; //lilac
+
+$colorAccent: #53B6DF; //light blue
+
+$colorBG: #fff;
+$colorBGLight: #e0dee0; // from CAC style doc: #E0DEE0;
+$colorBGHighlight: #efeeef;
+
+$colorHeading: $colorBrand2;
+$colorHeadingAlt: $colorAccent;
+
+$colorText: #000000;
+$colorTextLight: #B1ACB5;
+$colorTextNegative: #fff;
+
+$colorFeatureBG: $colorAccent;
+$colorFeatureText: $colorTextNegative;
+
+$colorLink: $colorBrand;
+$colorLinkHover: $colorAccent;
+
+$colorBorder: $colorBrand;
+$colorBorderAlt: $colorBrand2;
+
+$colorSelection: rgba(255,255,100,0.5);
+
+// typographic defaults
+$base-font-size: 62.5%;
+$base-font-weight: 500;
+$bold-font-weight: 700;
+$base-line-height: 1.6;

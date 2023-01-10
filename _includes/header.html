@@ -1,0 +1,46 @@
+{% include promo-bar.html %}
+
+<header>
+  {% assign the_pages=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
+  {% if the_pages.size > 1 and page.lang-ref and page.lang-ref != '' %}
+  <div class="lang-options">
+    <div class="wrapper text-right">
+      <select id="lang-toggle">
+        {% for the_page in the_pages %}
+            {% assign lang_label = '&#127482;&#127480; English' %}
+            {% if the_page.lang == 'es' %}
+              {% assign lang_label = '&#127466;&#127480; Español' %}
+            {% endif %}
+            {% comment %}<a href="{{ site.base-url }}{{ the_page.url }}" class="{{ the_page.lang }}" title="View in {{the_page.lang}}">{{ lang_label }}</a>{% endcomment %}
+            <option value="{{ the_page.lang }}" data-url="{{ the_page.url }}" {% if page.lang and page.lang == the_page.lang %}selected="selected"{% endif %}>{{ lang_label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  {% endif %}
+  <div class="wrapper">
+  	{% if page.permalink contains 'home' %}
+    <h1 class="logo">
+      <a href="{{ "/" | relative_url }}">
+  	    <img src="{{ site.media_url}}{{ site.data.header.logo }}" alt="{{ site.title | escape }}" />
+  	  </a>
+    </h1>
+    {% else %}
+    	<div class="logo">
+  	    <a href="{{ "/" | relative_url }}">
+  		    <img src="{{ site.media_url}}{{ site.data.header.logo }}" alt="{{ site.title | escape }}" />
+  		  </a>
+  	  </div>
+    {% endif %}
+    
+    <button id="navTrigger" class="large-up--hide"><span class="icon icon-menu" aria-label="menu"></span></button>
+    <nav id="navTarget" class="text-right">
+      {% if page.lang == 'es' %}
+        {% include navigation.html navigation=site.data.navigation.header_navigation_es %}
+      {% else %}
+        {% include navigation.html navigation=site.data.navigation.header_navigation %}
+      {% endif %}
+    </nav>
+    
+  </div>
+</header>

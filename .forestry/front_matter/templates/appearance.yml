@@ -1,0 +1,55 @@
+---
+label: Appearance
+hide_body: true
+fields:
+- name: width
+  type: select
+  default: Normal
+  config:
+    required: false
+    options:
+    - Narrow
+    - Normal
+    - Wide
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Content Width
+- name: align
+  type: select
+  default: left
+  config:
+    required: false
+    options:
+    - left
+    - center
+    - right
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Align
+- name: bg_color
+  type: boolean
+  label: Background Color
+- name: background_color
+  type: color
+  label: Background Color
+  config:
+    required: false
+    color_format: Hex
+  default: "#5E2490"
+  showOnly:
+    field: bg_color
+    value: true
+- name: featured_image
+  type: file
+  config:
+    maxSize: 250
+  label: Featured Image
+- name: image_align_right
+  type: boolean
+  label: Featured Image Align Right

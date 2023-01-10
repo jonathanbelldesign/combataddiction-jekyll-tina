@@ -1,0 +1,132 @@
+---
+layout: default
+---
+
+{% for section in page.sections %}
+{% capture 'section-class' %}home-section {{ section.template }} {% if section.align %} text-{{ section.align }}{% endif %}{% if section.bg_color == true %} color-bg{% endif %}{% endcapture %}
+<section id="home-{{ section.section_title | slugify }}" class="{{ section-class }}"{% if section.bg_color == true %} style="background-color: {{ section.background_color }};"{% endif %}>
+  {% unless section.template == 'section-hero-image' %}
+  <div class="wrapper{% if section.width != 'Normal' %} {{ section.width | downcase }}{% endif %}">
+  {% endunless %}
+
+      {% if section.featured_image and section.featured_image != ''  %}
+      <div class="featured-image {% if section.image_align_right  %}align-right{% endif %}">
+        <img src="{{ site.media_url }}{{ section.featured_image }}">
+      </div>
+      {% endif %}
+
+  {% case section.template %}
+  
+    {% when 'section-hero-image' %}
+    
+    <div class="hero-image" style="background: url({{ site.media_url }}/w_1440/e_tint:60:372554:0p:5E2490:100p{{ section.image }}) center no-repeat;">
+      {% if section.banner_image_credit != '' %}<span class="image-credit">Photo by {{ section.banner_image_credit }}</span>{% endif %}
+    </div>
+      
+    <div class="hero-content"{% if section.text_vertical_position and section.text_vertical_position != '' %} style="top: {{ section.text_vertical_position }}%;"{% endif %}>
+    
+      <h2 class="section-title">{{ section.section_title }}</h2>
+      
+      {% if section.section_body %}{{ section.section_body }}{% endif %}
+    
+    </div>
+  
+    {% when 'section-text' %}
+    
+    <h2 class="section-title">{{ section.section_title }}</h2>
+    
+    {% if section.section_body %}{{ section.section_body }}{% endif %}
+    
+    {% when 'section-slider' %}
+    
+    <h2 class="section-title">{{ section.section_title }}</h2>
+    
+    <div class="slider">
+      {% for slide in section.slides %}
+      <div class="slide">
+        {{ slide.body }}
+      </div>
+      {% endfor %}
+    </div>
+    
+    <!--<button class="slide-next"></button>
+    <button class="slide-prev"></button>-->
+    
+    
+    
+    
+    {% when 'section-columns' %}
+    
+    <h2 class="section-title">{{ section.section_title }}</h2>
+    
+    {% comment %}{{ section.column.size }}{% endcomment %}
+    
+    {% case section.column.size %}
+      {% when 1 %}
+        {% assign column_class = 'one-whole' %}
+      {% when 2 %}
+        {% assign column_class = 'one-half' %}
+      {% when 3 %}
+        {% assign column_class = 'one-third small--one-whole' %}
+      {% when 4 %}
+        {% assign column_class = 'one-quarter small--one-whole' %}
+      {% when 5 %}
+        {% assign column_class = 'one-fifth small--one-whole' %}
+    {% endcase %}
+    
+    <div class="grid">
+      {% for column in section.column %}
+      <div class="grid__item {{ column_class }}">
+        {% assign icon_name = column.column_title | downcase %}
+        {% include icon.html icon=icon_name %}
+        <h3 class="column-title text-center">{{ column.column_title }}</h3>
+        <div class="column-body text-{{ section.align_body }}">
+        {{ column.column_body }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+    {% when 'featured-articles' %}
+    
+    <div class="grid">
+      {% for post in site.posts limit: 3 %}
+		    {% assign author = site.data.authors[post.author] %}
+				<div class="grid__item one-third small--one-whole">
+		    	{% if post.image %}
+		    	<a href="{{ post.url }}"><img src="{{ post.image }}" /></a>
+					{% endif %}
+	        <h3 class="post__title text-left"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+	        {% if post.author %}
+            <p class="byline hide"><small><strong>By {{ post.author }}</strong></small></p>
+          {% endif %}
+          
+	        <time datetime="{{ post.date }}">
+	            {{ post.date | date: "%B %-d, %Y" }}
+	        </time>
+          
+	        <div class="rte post_excerpt">
+		        {{ post.excerpt | truncate: 500 }}
+	        </div>
+	        
+		      <div class="post_readmore"><p><a href="{{ post.url }}">Read more »</a></p></div>
+				</div>
+		  {% endfor %}
+    </div>
+    
+  {% endcase %}
+  
+  {% if section.cta_link and section.cta_link != '' %}
+    <div class="cta-block">
+      {% if section.cta_link == site.data.header.booking_link %}
+			<a href="{{ site.data.header.booking_link }}" class="btn btn--accent"><span class="icon icon-brand"></span> {{ section.cta_label }}</a>
+			{% else %}
+			<a href="{{ section.cta_link }}" class="btn"><span class="icon"></span> {{ section.cta_label }}</a>
+			{% endif %}
+		</div>
+  {% endif %}
+  {% unless section.background-width == 'full-width' %}
+  </div><!-- /wrapper -->
+  {% endunless %}
+</section>
+{% endfor %}

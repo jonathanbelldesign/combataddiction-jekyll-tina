@@ -1,0 +1,99 @@
+---
+label: Header & Footer
+hide_body: true
+fields:
+- type: file
+  name: logo
+  label: Logo
+- type: boolean
+  name: promo_bar
+  label: Show Promo Bar
+- type: text
+  name: promo_text
+  label: Promo Bar Text
+  showOnly:
+    field: promo_bar
+    value: true
+- name: promo_bar_font_size
+  type: number
+  label: Promo Bar Font Size (px)
+  description: ''
+  default: 18
+  required: true
+  config:
+    min: 10
+    max: 20
+    step: 0.1
+- name: promo_color
+  type: color
+  label: Promo Bar Color
+  config:
+    required: false
+    color_format: Hex
+  default: "#372554"
+  showOnly:
+    field: promo_bar
+    value: true
+- name: footer_disclosure
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: Footer Disclosure
+- name: footer_disclosure_es
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: Footer Disclosure (Spanish)
+- name: show_help_widget
+  type: boolean
+  label: Show Help Widget
+- name: help_widget_button_label
+  type: text
+  config:
+    required: false
+  label: Help Widget Button Label
+  showOnly:
+    field: show_help_widget
+    value: true
+- name: help_widget_button_label_es
+  type: text
+  config:
+    required: false
+  label: Help Widget Button Label (Spanish)
+  showOnly:
+    field: show_help_widget
+    value: true
+- name: help_widget_message
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html
+  label: Help Widget Message
+  showOnly:
+    field: show_help_widget
+    value: true
+- name: help_widget_message_es
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html
+  label: Help Widget Message (Spanish)
+  showOnly:
+    field: show_help_widget
+    value: true
+pages:
+- _data/header.yml

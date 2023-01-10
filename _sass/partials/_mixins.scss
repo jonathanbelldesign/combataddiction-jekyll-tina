@@ -1,0 +1,106 @@
+	// List your mixins in here to keep things tidy
+	
+	$button-font-size: 1.5rem;
+
+// A basic button
+@mixin button($color: $colorBrand) {
+  
+  padding: 1rem 2rem !important;
+  min-width: 250px;
+  height: 4.5rem;
+  border-width: 0 !important;
+	border-radius: 2.25rem;
+	text-align: center;
+	line-height: $base-line-height;
+	background-color: $color;
+	color: $colorTextNegative;
+	font-family: $headingFont;
+	font-weight: bold;
+	font-size: 1.5rem;
+	transition: all $transition;
+	//@include media-query($medium-up) {
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: $colorAccent;
+			color: $colorTextNegative;
+		}
+		&:active {
+			border-width: 3px 0 0;
+		}
+	//}
+}
+@mixin button-negative($color: $colorBrand) {
+  background-color: transparent;
+  border: 2px solid $colorTextNegative !important;
+  
+  &:hover {
+    background-color: $colorTextNegative;
+    color: $colorBrand;
+  }
+}
+
+// Disable text selection
+@mixin user-select($argument: none){
+  -webkit-user-select: $argument;
+  -moz-user-select: $argument;
+  -ms-user-select: $argument;
+  user-select: $argument;
+}
+
+// Clearfix
+
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  // sass-lint:disable no-misspelled-properties
+  *zoom: 1;
+}
+
+/*================ Responsive Show/Hide Helper ================*/
+@mixin responsive-display-helper($grid-breakpoint-type: '') {
+  // sass-lint:disable no-important
+  .#{$grid-breakpoint-type}show {
+    display: block !important;
+  }
+
+  .#{$grid-breakpoint-type}hide {
+    display: none !important;
+  }
+}
+
+
+/*================ Responsive Text Alignment Helper ================*/
+@mixin responsive-text-align-helper($grid-breakpoint-type: '') {
+  // sass-lint:disable no-important
+  .#{$grid-breakpoint-type}text-left {
+    text-align: left !important;
+  }
+
+  .#{$grid-breakpoint-type}text-right {
+    text-align: right !important;
+  }
+
+  .#{$grid-breakpoint-type}text-center {
+    text-align: center !important;
+  }
+}
+//$horizontal-center: false;
+@mixin vertical-center($horizontal-center: false) {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	@if($horizontal-center) {
+	left: 50%;
+	transform: translate(-50%, -50%);
+	}
+}
+
+@mixin vcenter() {
+	display: flex;
+  align-items: center;
+}

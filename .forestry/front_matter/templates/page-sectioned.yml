@@ -1,0 +1,59 @@
+---
+label: Sectioned Page
+hide_body: true
+fields:
+- name: layout
+  type: text
+  config:
+    required: false
+  label: Layout
+  hidden: true
+  default: page
+- name: title
+  type: text
+  config:
+    required: false
+  label: Title
+- name: sections
+  type: blocks
+  template_types:
+  - section-hero-image
+  - section-text
+  - video-block
+  - section-video-gallery
+  - section-columns
+  - section-slider
+  config:
+    min: 
+    max: 
+  label: Sections
+- name: show_section_navigation
+  type: boolean
+  label: Show Section Navigation
+  hidden: true
+- name: permalink
+  type: text
+  config:
+    required: false
+  label: Permalink
+- name: seo
+  type: include
+  config: {}
+  template: seo
+  label: SEO
+- name: banner_image
+  type: include
+  config: {}
+  template: banner-image
+  label: Banner Image
+- name: lang-ref
+  type: text
+  config:
+    required: false
+  label: Language Reference
+  description: This should contain the URL handle for the corresponding page in English,
+    e.g. <em>get-help-now</em>
+pages:
+- pages/index.md
+- pages/learn.md
+- pages/videos.md

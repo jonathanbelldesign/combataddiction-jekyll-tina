@@ -1,0 +1,6 @@
+<section class="page-intro page-banner"{% if page.banner_image and page.banner_image != '' %} style="background-image: url({{ site.media_url }}/w_1500/e_tint:60:372554:0p:5E2490:100p{{ page.banner_image }});"{% endif %}>
+	<div class="wrapper">
+		<h1 class="page-title">{{ page.title }}</h1>
+	</div>
+	{% if page.banner_image_credit != '' %}<span class="image-credit">Photo by {{ page.banner_image_credit }}</span>{% endif %}
+</section>

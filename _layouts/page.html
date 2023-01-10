@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+{% if page.display_heading == true %}
+	
+{% include page-banner.html %}
+
+{% endif %}
+
+{% if page.sections and page.sections.size %}
+
+<div class="page-content wrapper">
+
+  {% if page.show_section_navigation %}
+  <div class="grid grid--rev">
+    <aside class="grid__item medium-up--one-quarter sticky">
+      {% include page-navigation.html %}
+      <a class="back-to-top small--hide" href="#top">{% if page.lang == 'es' %}Volver arriba{% else %}Back to top{% endif %}</a>
+    </aside>
+    <div class="grid__item medium-up--three-quarters">
+      {% include page-sections.html %}
+      <a class="back-to-top medium-up--hide" href="#top">{% if page.lang == 'es' %}Volver arriba{% else %}Back to top{% endif %}</a>
+    </div>
+  </div>
+  
+  {% else %}
+    
+    {% include page-sections.html %}
+    
+  {% endif %}
+  
+</div>
+
+{% else %}
+
+<div class="page-content wrapper">
+	
+	{% include page-body.html %}
+	
+</div>
+	
+{% endif %}

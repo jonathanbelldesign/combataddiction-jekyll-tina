@@ -1,0 +1,30 @@
+---
+label: Blog Post
+hide_body: false
+display_field: title
+fields:
+- type: text
+  name: layout
+  label: layout
+  default: post
+  hidden: true
+- type: text
+  name: title
+  label: Title
+- type: datetime
+  name: date
+  label: Publish Date
+- name: image
+  type: file
+  config:
+    maxSize: '10'
+  label: Image
+- name: categories
+  type: tag_list
+  default: []
+  label: Categories
+- name: seo
+  type: include
+  config: {}
+  template: seo
+  label: SEO

@@ -1,0 +1,52 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: "/admin"
+webhook_url: 
+sections:
+- type: document
+  path: pages/index.md
+  label: Homepage
+- type: directory
+  path: pages
+  label: Pages
+  create: documents
+  match: "**/*"
+  exclude: index.md
+  templates:
+  - basic-page
+  - page-sectioned
+- type: document
+  path: _data/meta.yml
+  label: Meta
+- type: document
+  path: _data/header.yml
+  label: Header & Footer
+- type: document
+  path: _data/navigation.yml
+  label: Navigation
+- type: heading
+  label: Spanish
+- type: directory
+  path: lang/es/pages
+  label: Pages
+  create: documents
+  match: "**/*"
+  templates:
+  - page-sectioned
+  - basic-page
+upload_dir: ''
+public_path: https://res.cloudinary.com/combataddictionchq
+front_matter_path: ''
+use_front_matter_path: true
+file_template: ":filename:"
+build:
+  preview_env:
+  - JEKYLL_ENV=staging
+  preview_output_directory: _site
+  install_dependencies_command: bundle install --path vendor/bundle
+  preview_docker_image: forestryio/ruby:2.6
+  mount_path: "/srv"
+  working_dir: "/srv"
+  instant_preview_command: bundle exec jekyll serve --drafts --unpublished --future
+    --port 8080 --host 0.0.0.0 -d _site

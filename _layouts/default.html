@@ -1,0 +1,24 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html data-current="{{ page.id }}" lang="{{ page.lang | default: 'en' }}">
+
+  {% include head.html %}
+
+  <body class="page-{{ page.id }} template-{{ page.layout }}">
+
+    {% include header.html %}
+
+    <main>
+
+      {{ content }}
+
+    </main>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

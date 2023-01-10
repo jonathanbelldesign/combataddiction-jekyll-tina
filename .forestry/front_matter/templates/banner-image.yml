@@ -1,0 +1,14 @@
+---
+label: Banner Image
+hide_body: true
+fields:
+- name: banner_image
+  type: file
+  config:
+    maxSize: 250
+  label: Banner Image
+- name: banner_image_credit
+  type: text
+  config:
+    required: false
+  label: Banner Image Credit

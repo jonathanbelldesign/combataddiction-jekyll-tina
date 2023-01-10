@@ -1,0 +1,66 @@
+---
+label: Navigation
+hide_body: true
+fields:
+- type: field_group_list
+  name: header_navigation
+  label: Header Navigation
+  fields:
+  - type: text
+    name: text
+    label: Text
+  - type: text
+    name: url
+    label: URL
+  - name: new_tab
+    type: boolean
+    label: Open link in new tab
+- name: header_navigation_es
+  type: field_group_list
+  fields:
+  - name: text
+    type: text
+    config:
+      required: false
+    label: Text
+  - name: url
+    type: text
+    config:
+      required: false
+    label: URL
+  - name: new_tab
+    type: boolean
+    label: Open link in new tab
+  config:
+    min: 
+    max: 
+    labelField: 
+  label: Header Navigation - Spanish
+- type: field_group_list
+  name: footer_navigation
+  label: Footer Navigation
+  fields:
+  - type: text
+    name: text
+    label: Text
+  - type: text
+    name: url
+    label: URL
+  - name: new_tab
+    type: boolean
+    label: Open link in new tab
+- type: field_group_list
+  name: footer_navigation_es
+  label: Footer Navigation - Spanish
+  fields:
+  - type: text
+    name: text
+    label: Text
+  - type: text
+    name: url
+    label: URL
+  - name: new_tab
+    type: boolean
+    label: Open link in new tab
+pages:
+- _data/navigation.yml

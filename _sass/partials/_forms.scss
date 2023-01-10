@@ -1,0 +1,122 @@
+form {
+  padding: 3rem 10rem;
+	min-width: 300px;
+	background: $colorBGLight;
+}
+input[type=text],
+input[type=number],
+input[type=email],
+//input[type=submit],
+select,
+textarea {
+	//padding: .75rem 1rem;
+	height: auto;
+	margin-bottom: 1rem;
+	//width: 100%;
+	//border-radius: 0;
+	border: none;
+	background-color: $colorBG;
+	padding: .75em 1rem;
+	border: none;
+	border-bottom: 3px solid $colorTextLight;
+}
+input[type=text],
+input[type=number],
+input[type=email],
+select {
+  height: 48px;
+}
+textarea {
+  border: 3px solid $colorTextLight;
+}
+input,
+textarea {
+	transition: all $transition;
+	&:focus {
+		border-color: $colorBrand;
+	}
+}
+input[type=submit],
+button {
+	cursor: pointer;
+}
+label {
+  margin-bottom: .5rem;
+	font-size: .9em;
+	font-weight: bold;
+	color: $colorBrand2;
+}
+input[type=radio]+label {
+  margin-left: .5rem;
+  margin-right: 1rem;
+}
+.contact-form {
+	form {
+		.grid__item {
+			margin-bottom: 0;
+		}
+		&.card {
+			padding: 3rem;
+		}
+		button {
+			margin-top: 1rem;
+			width: 100%;
+		}
+	}
+}
+.g-recaptcha {
+  display: inline-block;
+}
+
+/* Caspio Form */
+
+#caspioform {
+  padding: 0;
+  background: none !important;
+}
+
+@include media-query($small) {
+  form {
+    padding: 2rem 3rem;
+  }
+
+#caspio-widget {
+  max-width: 100% !important;
+  overflow: hidden;
+}
+
+#caspioform {
+  padding: 0;
+  min-width: 0;
+
+  table {
+      //width: 375px !important;
+      display: block;
+  }
+  td {
+      display: block;
+      width: 100% !important;
+  }
+  
+  input[type=radio] {
+      clear: both;
+      float: left;
+      margin-top: .5rem;
+  }
+  
+  input[type=radio] + label {
+      /* float: left; */
+      display: block;
+      float: left;
+      margin-top: 0;
+  }
+  
+  .cbFormLabelCell {
+      text-align: left;
+  }
+  
+  td.cbFormLabelCell.cbFormLabel {
+      /* float: left; */
+  }
+}
+}

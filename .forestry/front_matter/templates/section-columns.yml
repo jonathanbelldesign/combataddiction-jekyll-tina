@@ -1,0 +1,67 @@
+---
+label: Section - Columns
+hide_body: true
+display_field: section_title
+fields:
+- name: section_title
+  type: text
+  config:
+    required: false
+  label: Section Title
+- name: section_description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Section Description
+- name: column
+  type: field_group_list
+  fields:
+  - name: column_title
+    type: text
+    config:
+      required: false
+    label: Column Title
+  - name: column_body
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: html-blocks
+    label: Column Body
+  config:
+    min: '2'
+    max: '5'
+    labelField: column_title
+  label: Column
+- name: cta
+  type: include
+  config: {}
+  template: cta
+  label: Action Button
+- name: appearance
+  type: include
+  config: {}
+  template: appearance
+  label: Appearance
+- name: align_body
+  type: select
+  default: auto
+  config:
+    required: false
+    options:
+    - auto
+    - left
+    - center
+    - right
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Align Body

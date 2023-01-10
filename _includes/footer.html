@@ -1,0 +1,73 @@
+<footer class="text-center">
+	<div class="wrapper narrow text-center">
+  	
+		<a href="{{ "/" | relative_url }}" class="logo"><img src="{{ site.media_url}}{{ site.data.header.logo }}" alt="{{ site.title | escape }}" /></a>
+		
+		<nav class="footer-navigation">
+			{% if page.lang == 'es' %}
+				{% include navigation.html navigation=site.data.navigation.footer_navigation_es %}
+			{% else %}
+      			{% include navigation.html navigation=site.data.navigation.footer_navigation %}
+			{% endif %}
+    	</nav>
+
+		{% if page.lang == 'es' %}
+
+		{{ site.data.header.footer_disclosure_es }}
+
+		{% else %}
+		
+		{{ site.data.header.footer_disclosure }}
+
+		{% endif %}
+		
+		<div class="social hide">
+    	<!--Follow us:&nbsp;-->
+    	{% for network in site.data.meta.social %}
+    	{% assign network-name = network[0] %}
+    	{% assign network-link = network[1] %}
+    	<a href="{{ network-link }}" target="_blank">{% include icon.html icon=network-name %}</a>
+    	{% endfor %}
+  	</div>
+
+  	<small class="copyright">&copy; {{ 'now' | date: "%Y" }} Chautauqua County Department of Mental Hygiene</small>
+	</div>
+
+</footer>
+
+{% if site.data.header.show_help_widget and site.data.header.show_help_widget == true %}
+	{% unless page.hide_help_widget and page.hide_help_widget == true %}
+		{% if page.lang == 'es' and site.data.header.help_widget_button_label_es and site.data.header.help_widget_button_label_es != ''  %}
+			<div id="need-help">
+				<button>{{ site.data.header.help_widget_button_label_es }}</button>
+				<div class="message">
+					<p>{{ site.data.header.help_widget_message_es }}</p>
+				</div>
+			</div>
+		{% else %}
+			<div id="need-help">
+				<button>{{ site.data.header.help_widget_button_label }}</button>
+				<div class="message">
+					<p>{{ site.data.header.help_widget_message }}</p>
+				</div>
+			</div>
+		{% endif %}
+
+	{% endunless %}
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="/assets/js/slick.min.js"></script>
+<script src="/assets/js/remodal.min.js"></script>
+<script src="/assets/js/site.js"></script>
+<!--<script async src="https://w.appzi.io/bootstrap/bundle.js?token=IuFAb"></script>-->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1692259,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>

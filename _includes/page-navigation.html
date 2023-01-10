@@ -1,0 +1,8 @@
+<nav class="page-navigation">
+  <ul>
+    <li class="heading">{% if page.lang == 'es' %}Tabla de contenido{% else %}Table of Contents{% endif %}</li>
+  {% for section in page.sections %}
+    <li data-id="{{ section.section_title | slugify }}"><a href="#{{ section.section_title | slugify }}">{{ section.section_title }}</a></li>
+  {% endfor %}
+  </ul>
+</nav>

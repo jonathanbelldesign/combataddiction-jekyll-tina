@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<section class="page-intro">
+	<div class="wrapper narrow">
+		<h1 class="page-title">{{ page.title }}</h1>
+		{% include page-intro.html %}
+	</div>
+</section>
+
+<section class="page-content">
+{% include page-body.html %}
+
+<!--<h3>Recent Posts</h3>-->
+<div class="wrapper narrow posts">
+	<!--<div class="grid">
+		<section class="grid__item two-thirds small--one-whole">-->
+			{% for post in site.posts limit: 6 %}
+		    {% assign author = site.data.authors[post.author] %}
+				<article class="post">
+		    	{% if post.image %}
+		    	<a href="{{ post.url }}"><img src="{{ post.image }}" /></a>
+					{% endif %}
+	        <h3 class="post__title text-left"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+	        {% if post.author %}
+            <p class="byline"><small><strong>By {{ post.author }}</strong></small></p>
+          {% endif %}
+          
+          <time datetime="{{ post.date }}">
+	          <strong>{{ post.date | date: "%B %-d, %Y" }}</strong>
+	        </time>
+          
+	        <div class="rte post_excerpt medium-up--hide">
+		        {{ post.excerpt | truncate: 500 }}
+	        </div>
+	        <div class="rte post__body small--hide">
+		        {{ post.content }}
+	        </div>
+	        
+				</article>
+		  {% endfor %}
+		<!--</section>
+	</div>-->
+</div>
+</section>

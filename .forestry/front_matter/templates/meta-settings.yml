@@ -1,0 +1,24 @@
+---
+label: Meta Settings
+hide_body: true
+fields:
+- type: file
+  name: favicon
+  label: Favicon
+- name: shareimage
+  type: file
+  config:
+    maxSize: 10
+  label: Share Image
+- type: field_group
+  name: social
+  label: Social
+  fields:
+  - type: text
+    name: instagram
+    label: instagram
+  - type: text
+    name: facebook
+    label: facebook
+pages:
+- _data/meta.yml

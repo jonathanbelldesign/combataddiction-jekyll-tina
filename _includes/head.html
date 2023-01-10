@@ -1,0 +1,59 @@
+{%- assign seo_title = '' -%}
+
+{%- if page.seo_title and page.seo_title != '' -%}
+	{%- assign seo_title = page.seo_title | strip_html -%}
+{%- else -%}
+  {%- assign seo_title = page.title -%}
+	{%- unless page.title contains site.title -%}
+		{%- assign seo_title = seo_title | append: " - " | append: site.title -%}
+	{%- endunless -%}
+{%- endif -%}
+	
+{%- assign seo_desc = '' -%}
+{%- if page.seo_description -%}
+	{%- assign seo_desc = page.seo_description -%}
+{%- elsif page.intro_paragraph -%}
+	{%- assign seo_desc = page.intro_paragraph -%}
+{%- else -%}
+	{%- assign seo_desc = page.content -%}
+{%- endif -%}
+
+{%- assign seo_desc = seo_desc | strip_html | escape | strip_newlines | truncate: 320 -%}
+
+{% assign share_image = page.image %}
+{% unless share_image %}
+	{% assign share_image = site.data.meta.shareimage %}
+{% endunless %}
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+ 	<title>{{ seo_title }}</title>
+ 	<meta name="description" content="{{ seo_desc }}">
+ 	<meta name="robots" content="index, follow">
+ 	
+ 	<meta property="og:type" content="website">
+ 	<meta property="og:title" content="{{ seo_title }}">
+ 	<meta property="og:description" content="{{ seo_desc }}">
+ 	<meta property="og:image" content="{{ site.media_url }}{{ share_image }}">
+ 	<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+ 	
+ 	<script type="application/ld+json">
+	{ "@context" : "http://schema.org",
+	  "@type" : "Organization",
+	  "legalName" : "{{ site.title }}",
+	  "url" : "{{ site.url }}",
+	  "logo" : "{{ site.url }}{{ site.data.header.logo }}",
+	  "sameAs" : [ "{{ site.data.meta.social.facebook }}",
+	    "{{ site.data.meta.social.instagram }}"]
+	}
+	</script>
+ 	
+ 	<link rel="icon" type="image/png" href="{{ site.media_url }}{{ site.data.meta.favicon }}">  
+
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {% if jekyll.environment == 'production' and site.analytics %}
+    {%- include analytics.html -%}
+  {%- endif -%}
+</head>

@@ -1,0 +1,46 @@
+---
+label: Section - Video Gallery
+hide_body: true
+fields:
+- name: layout
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - Single Column
+    - 2 Columns
+    - 3 Columns
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Gallery Layout
+- name: videos
+  type: field_group_list
+  fields:
+  - name: video_title
+    type: text
+    config:
+      required: false
+    label: Video Title
+  - name: video_id
+    type: text
+    config:
+      required: false
+    label: Video ID
+  - name: video_description
+    type: textarea
+    default: ''
+    config:
+      required: false
+      wysiwyg: true
+      schema:
+        format: markdown
+    label: Video Description
+  config:
+    min: 
+    max: 
+    labelField: video_title
+  label: Videos

@@ -1,0 +1,24 @@
+---
+label: SEO
+hide_body: true
+fields:
+- name: seo_title
+  type: text
+  config:
+    required: false
+  label: SEO Title
+- name: seo_description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: SEO Description
+- name: share_image
+  type: file
+  config:
+    maxSize: '5'
+  label: Share Image
+  default: ''

@@ -1,0 +1,35 @@
+---
+label: Section - Video
+hide_body: true
+display_field: section_title
+fields:
+- name: section_title
+  type: text
+  config:
+    required: false
+  label: Section Title
+- name: video_id
+  type: text
+  config:
+    required: false
+  label: YouTube ID
+  description: e.g. ayjXMix-nMw
+- name: section_body
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: Section Body
+- name: call_to_action
+  type: include
+  config: {}
+  template: cta
+  label: Call to Action
+- name: appearance
+  type: include
+  config: {}
+  template: appearance
+  label: Appearance

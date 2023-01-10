@@ -1,0 +1,71 @@
+---
+header_navigation:
+- text: Learn
+  url: "/learn"
+  new_tab: false
+- text: Find Help
+  url: "/find-help"
+  new_tab: false
+- text: In a Crisis?
+  url: "/get-help-now"
+  new_tab: false
+- text: Videos
+  url: "/videos"
+  new_tab: false
+- text: Career Paths
+  url: "/careerpaths"
+  new_tab: false
+header_navigation_es:
+- text: Aprender
+  url: "/es/aprender"
+  new_tab: false
+- text: Encontrar Ayuda
+  url: "/es/encontrar-ayuda"
+  new_tab: false
+- text: "¿En Crisis?"
+  url: "/es/en-una-crisis"
+  new_tab: false
+- text: Videos
+  url: "/es/videos"
+  new_tab: false
+- text: Trayectorias Profesionales
+  url: "/es/trayectorias-profesionales"
+  new_tab: false
+footer_navigation:
+- text: About
+  url: "/about"
+  new_tab: false
+- text: Contact
+  url: "/contact"
+  new_tab: false
+- text: Facebook
+  url: https://www.facebook.com/CombatAddictionCHQ/
+  new_tab: true
+- text: YouTube
+  url: https://www.youtube.com/channel/UCSBjF9HLGDdPqonIUin6xSw
+  new_tab: true
+- text: Instagram
+  url: https://www.instagram.com/combataddictionchq/
+  new_tab: true
+- text: Twitter
+  url: https://twitter.com/AddictionCHQ
+  new_tab: true
+footer_navigation_es:
+- text: Sobre
+  url: "/es/sobre"
+  new_tab: false
+- text: Contacto
+  url: "/es/contacto"
+  new_tab: false
+- text: Facebook
+  url: https://www.facebook.com/CombatAddictionCHQ/
+  new_tab: true
+- text: YouTube
+  url: https://www.youtube.com/channel/UCSBjF9HLGDdPqonIUin6xSw
+  new_tab: true
+- text: Instagram
+  url: https://www.instagram.com/combataddictionchq/
+  new_tab: true
+- text: Twitter
+  url: https://twitter.com/AddictionCHQ
+  new_tab: true

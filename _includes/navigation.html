@@ -1,0 +1,8 @@
+{% assign navurl = page.url | remove: 'index.html' %}
+<ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+    {% for item in include.navigation %}
+    <li class="nav-item--{{ item.url | strip_html | slugify }} {{ navurl | slugify }} {% if item.url == navurl %}nav-link__active{% endif %}" itemprop="name">
+        <a itemprop="url" href="{{ item.url }}" {% if item.new_tab %} target="_blank" {% endif %}>{% if item.text contains "Facebook" %}{% include icon.html icon="facebook" %} {% elsif item.text contains "YouTube" %}{% include icon.html icon="youtube" %} {% elsif item.text contains "Instagram" %}{% include icon.html icon="instagram" %} {% elsif item.text contains "Twitter" %}{% include icon.html icon="twitter" %} {% endif %}{{ item.text }}</a>        {% if item.subitems %} {% include navigation.html navigation=item.subitems %} {% endif %}
+    </li>
+    {% endfor %}
+</ul>
