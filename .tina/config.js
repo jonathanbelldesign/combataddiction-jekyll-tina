@@ -13,8 +13,8 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
-      publicFolder: "assets",
+      mediaRoot: "assets/img/uploads",
+      publicFolder: "",
     },
   },
   schema: {
@@ -23,8 +23,43 @@ export default defineConfig({
         label: "Pages",
         name: "pages",
         path: "pages",
-        templates: [
-          {
+            fields: [
+              {
+                type: "string",
+                name: "layout",
+                label: "Layout",
+              },
+              {
+                type: "string",
+                name: "title",
+                label: "Title",
+              },
+              {
+                type: "boolean",
+                name: "show_section_navigation",
+                label: "Show Section Navigation",
+              },
+              {
+                type: "string",
+                name: "permalink",
+                label: "Permalink",
+              },
+              {
+                type: "string",
+                name: "lang_ref",
+                label: "Language Reference",
+              },
+              {
+                type: "image",
+                name: "animage",
+                label: "Image"
+              }
+            ],
+      },
+      {
+        label: "Pages ES",
+        name: "pages_es",
+        path: "lang/es/pages",
             fields: [
               {
                 type: "string",
@@ -52,11 +87,7 @@ export default defineConfig({
                 label: "Language Reference",
               },
             ],
-            label: "page-sectioned",
-            name: "page_sectioned",
-          },
-        ],
-      }
+      },
     ],
   },
 });
